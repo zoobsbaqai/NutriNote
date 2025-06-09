@@ -3,19 +3,44 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DietManagerMenu {
-    public static void main(String[] args) {
+    public static void show(JFrame previousFrame){
         JFrame frame = new JFrame("Diet Manager");
         frame.setSize(400, 700);
         frame.setLayout(null);
 
-        JButton exit = new JButton("close");
-        exit.setBounds(175, 575, 50, 15);
+        JButton dietEntry = new JButton("Post Entry");
+        dietEntry.setBounds(20, 120, 360, 120);
+        dietEntry.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+
+        JButton seeLog = new JButton("View Food Log");
+        seeLog.setBounds(20, 265, 360, 120);
+        seeLog.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+
+        JButton getRec = new JButton("Meal Recommendations");
+        getRec.setBounds(20, 415, 360, 120);
+        getRec.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+
+        JButton back = new JButton("Back");
+        back.setBounds(175, 575, 50, 15);
 
         JLabel title = new JLabel("Diet Manager");
-        title.setBounds(90, 25, 720, 75);
+        title.setBounds(80, 25, 720, 75);
         title.setFont(new Font("Serif", Font.PLAIN, 45));
         
         frame.add(title);
-        frame.add(exit);
+        frame.add(back);
+        frame.add(getRec);
+        frame.add(seeLog);
+        frame.add(dietEntry);
+
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose(); // close current window
+                previousFrame.setVisible(true); // show previous frame
+            }
+        });
+
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

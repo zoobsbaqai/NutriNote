@@ -11,7 +11,7 @@ class ManagerSelection extends JFrame {
         frame.setSize(400, 700);
         frame.setLayout(null);
 
-        JButton exit = new JButton("close");
+        JButton exit = new JButton("Exit");
         exit.setBounds(175, 575, 50, 15);
 
         JButton dietTab = new JButton("DIET MANAGER");
@@ -37,13 +37,15 @@ class ManagerSelection extends JFrame {
 
         dietTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DietManagerMenu.main(args);
+                DietManagerMenu.show(frame);
+                frame.setVisible(false);
             }
         });
 
         exerTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ExcerciseManagerMenu.main(args);
+                ExcerciseManagerMenu.show(frame);
+                frame.setVisible(false);
             }
         });
 
