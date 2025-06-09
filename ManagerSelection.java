@@ -14,26 +14,38 @@ class ManagerSelection extends JFrame {
         JButton exit = new JButton("close");
         exit.setBounds(175, 575, 50, 15);
 
-        JButton play = new JButton("DIET MANAGER");
-        play.setBounds(20, 180, 360, 120);
-        play.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+        JButton dietTab = new JButton("DIET MANAGER");
+        dietTab.setBounds(20, 180, 360, 120);
+        dietTab.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
-        JButton helpTab = new JButton("EXERCISE MANAGER");
-        helpTab.setBounds(20, 375, 360, 120);
-        helpTab.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
+        JButton exerTab = new JButton("EXERCISE MANAGER");
+        exerTab.setBounds(20, 375, 360, 120);
+        exerTab.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
         JLabel title = new JLabel("NutriNote");
-        title.setBounds(90, 25, 720, 75);
-        title.setFont(new Font("Serif", Font.PLAIN, 52));
+        title.setBounds(80, 25, 720, 75);
+        title.setFont(new Font("Comic Sans MS", Font.PLAIN, 52));
 
         //Adding all of the objects to the frame
         frame.add(title);
-        frame.add(helpTab);
+        frame.add(exerTab);
         frame.add(exit);
-        frame.add(play);
+        frame.add(dietTab);
        
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        dietTab.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DietManagerMenu.main(args);
+            }
+        });
+
+        exerTab.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ExcerciseManagerMenu.main(args);
+            }
+        });
 
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
