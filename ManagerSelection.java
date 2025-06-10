@@ -44,7 +44,7 @@ class ManagerSelection extends JFrame {
 
         exerTab.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ExcerciseManagerMenu.show(frame);
+                ExerciseManagerMenu.show(frame);
                 frame.setVisible(false);
             }
         });

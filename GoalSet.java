@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -26,7 +25,7 @@ public class GoalSet extends JFrame {
                     "General Health", "Lose Weight", "Gain Muscle" , "Fat Loss", "Gain Weight"
                 });
         JComboBox<String> actionCombo2 = new JComboBox<>(new String[] {
-                    "None", "Vegetarian", "Vegan" , "Pescatarian", "Flexitarian"
+                    "None", "Vegetarian", "Vegan" , "Pescatarian", "Flexitarian", "Halal/Kosher"
                 });
         JButton doneButton = new JButton("Done");
         

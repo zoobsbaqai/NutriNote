@@ -33,6 +33,24 @@ public class DietManagerMenu {
         frame.add(seeLog);
         frame.add(dietEntry);
 
+        seeLog.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DietLogPane.main(null);
+            }
+        });
+
+        getRec.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DietRecPane.main(null);
+            }
+        });
+
+        dietEntry.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DietPost.main(null);
+            }
+        });
+
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose(); // close current window
