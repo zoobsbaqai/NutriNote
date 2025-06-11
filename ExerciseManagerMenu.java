@@ -48,7 +48,7 @@ public class ExerciseManagerMenu {
 
         exerEntry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ExercisePost.main(null);
+                ExercisePost.show(frame);
             }
         });
 

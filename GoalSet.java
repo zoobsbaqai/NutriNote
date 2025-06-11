@@ -15,7 +15,7 @@ public class GoalSet extends JFrame {
         mainPanel = new JPanel(cardLayout);
 
         // First screen
-        JPanel screen1 = new JPanel(new GridLayout(5, 2, 5, 2));
+        JPanel screen1 = new JPanel(new GridLayout(1, 1, 5, 2));
         JButton startButton = new JButton("Start");
         // Bimsara Code
         screen1.add(startButton);

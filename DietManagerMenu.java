@@ -47,7 +47,7 @@ public class DietManagerMenu {
 
         dietEntry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DietPost.main(null);
+                DietPost.show(frame);
             }
         });
 
