@@ -3,8 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DietManagerMenu {
-    public static void show(JFrame previousFrame){
-        JFrame frame = new JFrame("Diet Manager");
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("NutriNote");
         frame.setSize(400, 700);
         frame.setLayout(null);
 
@@ -20,15 +20,15 @@ public class DietManagerMenu {
         getRec.setBounds(20, 415, 360, 120);
         getRec.setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
 
-        JButton back = new JButton("Back");
-        back.setBounds(175, 575, 50, 15);
+        JButton exit = new JButton("exit");
+        exit.setBounds(175, 575, 50, 15);
 
-        JLabel title = new JLabel("Diet Manager");
+        JLabel title = new JLabel("NutriNote");
         title.setBounds(80, 25, 720, 75);
         title.setFont(new Font("Serif", Font.PLAIN, 45));
         
         frame.add(title);
-        frame.add(back);
+        frame.add(exit);
         frame.add(getRec);
         frame.add(seeLog);
         frame.add(dietEntry);
@@ -51,10 +51,9 @@ public class DietManagerMenu {
             }
         });
 
-        back.addActionListener(new ActionListener() {
+        exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // close current window
-                previousFrame.setVisible(true); // show previous frame
+                SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
             }
         });
 

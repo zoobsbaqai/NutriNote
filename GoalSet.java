@@ -44,7 +44,7 @@ public class GoalSet extends JFrame {
         doneButton.addActionListener(e -> {
                 JOptionPane.showMessageDialog(this, "Thank you! Your entries have been saved!");
                 dispose();
-                ManagerSelection.main(null);
+                DietManagerMenu.main(null);
             });
 
         add(mainPanel);
