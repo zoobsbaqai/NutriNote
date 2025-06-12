@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/json-20240303.jar",
+        "/Users/zohairbaqai/Documents/GitHub/NutriNote/lib/json-20240303.jar"
+    ]
+}

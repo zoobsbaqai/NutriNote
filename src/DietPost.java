@@ -23,7 +23,7 @@ public class DietPost {
             // If the file doesn't exist, it will be created later
         }
 
-        foodLog.add(foodName + " Calories: " + foodCal + " Carbs: " + foodCarb + " Protein: " + foodProt);
+        foodLog.add(foodName + ". Calories: " + foodCal + "g. Carbs: " + foodCarb + "g. Protein: " + foodProt + "g.");
     
         try (FileWriter writer = new FileWriter(filePath)) {
             for (String entry : foodLog) {
@@ -59,34 +59,33 @@ public class DietPost {
 
 
         final JTextField foodName = new JTextField();
-        foodName.setBounds(10, 80, 150, 20);
+        foodName.setBounds(17, 75, 150, 25);
 
         final JTextField foodCal = new JTextField();
-        foodCal.setBounds(10, 130, 50, 20);
+        foodCal.setBounds(17, 125, 50, 25);
 
         final JTextField foodCarb = new JTextField();
-        foodCarb.setBounds(10, 180, 50, 20);
+        foodCarb.setBounds(17, 175, 50, 25);
 
         final JTextField foodProt = new JTextField();
-        foodProt.setBounds(10, 230, 50, 20);
+        foodProt.setBounds(17, 225, 50, 25);
 
 
         JLabel entName;
         entName = new JLabel("What did you eat?:");
-        entName.setBounds(15, 60, 160, 20);
+        entName.setBounds(15, 55, 160, 20);
         
         JLabel entCal;
         entCal = new JLabel("Calories:");
-        entCal.setBounds(15, 110, 150, 20);
+        entCal.setBounds(15, 105, 150, 20);
 
         JLabel entCarb;
         entCarb = new JLabel("Carbohydrates:");
-        entCarb.setBounds(15, 160, 150, 20);
+        entCarb.setBounds(15, 155, 150, 20);
 
         JLabel entProt;
         entProt = new JLabel("Protein:");
-        entProt.setBounds(15, 210, 150, 20);
-
+        entProt.setBounds(15, 205, 150, 20);
 
         frame.add(title);
         frame.add(entCal);
@@ -99,6 +98,13 @@ public class DietPost {
         frame.add(foodProt);
         frame.add(back);
         frame.add(submit);
+
+        submit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateFoodLog(foodName.getText(), Integer.parseInt(foodCal.getText()), Integer.parseInt(foodCarb.getText()), Integer.parseInt(foodProt.getText()));
+                SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
+            }
+        });
 
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
