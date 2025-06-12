@@ -1,10 +1,47 @@
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class DietPost {
+
+    public static void updateFoodLog(String foodName, int foodCal, int foodCarb, int foodProt){
+        String filePath = "FoodLog";
+        List<String> foodLog = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                foodLog.add(line);
+            }
+        } catch (IOException e) {
+            // If the file doesn't exist, it will be created later
+        }
+
+        foodLog.add(foodName + " Calories: " + foodCal + " Carbs: " + foodCarb + " Protein: " + foodProt);
+    
+        try (FileWriter writer = new FileWriter(filePath)) {
+            for (String entry : foodLog) {
+                writer.write(entry + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void resetLog(String fileName) {
+        try (FileWriter writer = new FileWriter(fileName, false)) {
+            writer.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void show(JFrame previousFrame) {
         JFrame frame = new JFrame("Diet Entry Post");
         frame.setSize(350, 300);

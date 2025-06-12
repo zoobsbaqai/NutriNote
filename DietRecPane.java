@@ -1,6 +1,0 @@
-public class DietRecPane {
-    public static void main(String[] args) {
-    
-    }
-
-}

@@ -41,7 +41,7 @@ public class DietManagerMenu {
 
         getRec.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DietRecPane.main(null);
+                DietRec.show(frame);
             }
         });
 
