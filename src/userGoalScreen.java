@@ -4,6 +4,10 @@ import java.awt.event.*;
 import java.io.*;
 
 public class userGoalScreen extends JPanel {
+
+    private static String userGoal;
+    private static String userDiet;
+
     public userGoalScreen(JFrame frame) {
         setLayout(null);
 
@@ -42,13 +46,13 @@ public class userGoalScreen extends JPanel {
 
         saveButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String goal = (String) goalCombo.getSelectedItem();
-                String diet = (String) dietCombo.getSelectedItem();
+                userGoal = (String) goalCombo.getSelectedItem();
+                userDiet = (String) dietCombo.getSelectedItem();
                 frame.dispose();
                 DietManagerMenu.main(null);
 
                 try (FileWriter writer = new FileWriter("user_goals.txt", true)) {
-                    writer.write(goal + "," + diet + "\n");
+                    writer.write(userGoal + "," + userDiet + "\n");
                     JOptionPane.showMessageDialog(frame, "Goals saved successfully!");
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(frame, "Error saving goals.");
@@ -63,5 +67,13 @@ public class userGoalScreen extends JPanel {
                 frame.repaint();
             }
         });
+    }
+
+    public static String getUserGoal() {
+        return userGoal;
+    }
+
+    public static String getUserDiet() {
+        return userDiet;
     }
 }

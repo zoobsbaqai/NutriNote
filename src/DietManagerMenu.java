@@ -2,7 +2,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
+//zohair
 public class DietManagerMenu {
+
+    //main method sets the frame with all buttons and text panels
     public static void main(String[] args) {
         JFrame frame = new JFrame("NutriNote");
         frame.setSize(400, 700);
@@ -33,6 +36,7 @@ public class DietManagerMenu {
         frame.add(seeLog);
         frame.add(dietEntry);
 
+        //action for each button
         seeLog.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DietLogPane.main(null);

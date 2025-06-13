@@ -14,7 +14,7 @@ public class DietLogPane {
         displayFoodItemsInMessageBox(foodItems);
     }
 
-    //this method gets the usernames
+    //this method gets all the items in the food log
     private static List<String> readFoodItemsFromFile(String fileName) {
         List<String> foodItems = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -28,7 +28,7 @@ public class DietLogPane {
         return foodItems;
     }
 
-    //this method prints the usernames
+    //this method prints the food items onto the pane for the user to read
     private static void displayFoodItemsInMessageBox(List<String> foodItems) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < foodItems.size(); i++) {

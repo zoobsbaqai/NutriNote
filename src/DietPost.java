@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//zohair
 public class DietPost {
 
+    //this method takes in the user inputs for each section and writes it into the food log text file
     public static void updateFoodLog(String foodName, int foodCal, int foodCarb, int foodProt){
         String filePath = "FoodLog";
         List<String> foodLog = new ArrayList<>();
@@ -20,7 +21,6 @@ public class DietPost {
                 foodLog.add(line);
             }
         } catch (IOException e) {
-            // If the file doesn't exist, it will be created later
         }
 
         foodLog.add(foodName + ". Calories: " + foodCal + "g. Carbs: " + foodCarb + "g. Protein: " + foodProt + "g.");
@@ -34,6 +34,7 @@ public class DietPost {
         }
     }
 
+    //this method is called when the reset button is pressed, it clears the food log txt file
     public static void resetLog(String fileName) {
         try (FileWriter writer = new FileWriter(fileName, false)) {
             writer.write("");
@@ -42,6 +43,7 @@ public class DietPost {
         }
     }
 
+    //main method sets frame and records actions
     public static void show(JFrame previousFrame) {
         JFrame frame = new JFrame("Diet Entry Post");
         frame.setSize(350, 300);
@@ -52,6 +54,9 @@ public class DietPost {
 
         JButton submit = new JButton("Post");
         submit.setBounds(150, 235, 75, 25);
+
+        JButton reset = new JButton("Reset Food Log");
+        reset.setBounds(200, 75, 125, 25);
 
         JLabel title = new JLabel("Diet Entry Post");
         title.setBounds(30, 8, 720, 40);
@@ -87,6 +92,7 @@ public class DietPost {
         entProt = new JLabel("Protein:");
         entProt.setBounds(15, 205, 150, 20);
 
+        //add all buttons, fields and text to the main frame body
         frame.add(title);
         frame.add(entCal);
         frame.add(entProt);
@@ -98,11 +104,18 @@ public class DietPost {
         frame.add(foodProt);
         frame.add(back);
         frame.add(submit);
+        frame.add(reset);
 
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateFoodLog(foodName.getText(), Integer.parseInt(foodCal.getText()), Integer.parseInt(foodCarb.getText()), Integer.parseInt(foodProt.getText()));
                 SwingUtilities.getWindowAncestor((Component) e.getSource()).dispose();
+            }
+        });
+
+        reset.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                resetLog("FoodLog");
             }
         });
 
